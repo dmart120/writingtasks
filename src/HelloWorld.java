@@ -1,15 +1,18 @@
 import org.apache.tools.ant.Task;
+import org.apache.tools.ant.BuildException;
 
 public class HelloWorld extends Task{
 
+	String message;
+
+	public void setMessage(String msg) {
+		message = msg;
+	}
+
 	public void execute() {
-		//use of the reference to Project-instance
-		String message = getProject().getProperty("ant.project.name");
-
-		//Task's log method
-		log("Here is project '" + message + "'.");
-
-		//where is this task used?
-		log("I am used in: " + getLocation());
+		if (message == null) {
+			throw new BuildException("No Message Set.");
+		}
+		log(message);
 	}
 }

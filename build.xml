@@ -21,7 +21,7 @@
 
 	<target name="use" description="Use the task" depends="jar">
 		<taskdef name="helloworld" classname="HelloWorld" classpath="${ant.project.name}.jar" />
-		<helloworld/>
+		<helloworld message="Hello World" />
 	</target>
 
 </project>
